@@ -12,6 +12,20 @@ var aotuConfig = config.wx_config.aotu;
 var baiduAsrConfig = config.wx_config.baidu_asr;
 var dialog = require('../config/dialog')
 var timeout = 100;
+
+var scores = [
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100
+];
 //
 var CustomService = function () {
     this.data = '';
@@ -193,55 +207,100 @@ CustomService.prototype.onNewMsg = function (msg) {
             }
 
             var input = {
-                msg: msg,
-                access_token: access_token,
-                sendAll: false
-            }
-
+                'access_token': access_token,
+                'media_id': msg.mediaId,
+            };
             var item = dialog[0];
             var index = self.users[msg.fromUserName].index;
             var itemChild = item.data[index];
-            if (itemChild.role == 'Student') {
-                // TODO: 校验所讲是否ok
-                if (self.checkValid(null)) {
-                    var newIndex = index + 1;
-                    if (newIndex < item.data.length) {
-                        self.users[msg.fromUserName].index = newIndex;
-                        var preRole = itemChild.role;
-                        var nowRole = item.data[newIndex].role;
 
-                        if (nowRole == preRole) {
-                            input.sendAll = false;
+            voiceDownload(input, function (succeed, data) {
+                    if (succeed) {
+                        if (itemChild.role == 'Student') {
+                            var standard = [
+                                itemChild.content
+                            ];
 
-                            setTimeout(function () {
-                                self.dialog(input);
-                            }, timeout);
-                        } else {
-                            input.sendAll = true;
-                            setTimeout(function () {
-                                self.dialog(input);
-                            }, timeout);
-                        }
-                    } else {
-                        // TODO: end dialog
-                        var textMsg = {
-                            "touser": msg.fromUserName,  // openid
-                            "msgtype": 'text',
-                            "text": {
-                                "content": "已经结束本次会话,重新开始请输入study指令"
+                            var input = {
+                                msg: msg,
+                                access_token: access_token,
+                                sendAll: false
                             }
-                        };
-                        self.sendNormalMsg(access_token, textMsg, function (result) {
+                            // TODO: 校验所讲是否ok
+                            var score = getScore(standard, data);
+                            if (score >= 60) {
+                                var textMsg = {
+                                    "touser": msg.fromUserName,  // openid
+                                    "msgtype": 'text',
+                                    "text": {
+                                        "content": "本次打分通过,分数为: " + score
+                                    }
+                                };
+                                self.sendNormalMsg(access_token, textMsg, function (result) {
 
-                        });
+                                });
+
+                                var newIndex = index + 1;
+                                if (newIndex < item.data.length) {
+                                    self.users[msg.fromUserName].index = newIndex;
+                                    var preRole = itemChild.role;
+                                    var nowRole = item.data[newIndex].role;
+
+                                    if (nowRole == preRole) {
+                                        input.sendAll = false;
+
+                                        setTimeout(function () {
+                                            self.dialog(input);
+                                        }, timeout);
+                                    } else {
+                                        input.sendAll = true;
+                                        setTimeout(function () {
+                                            self.dialog(input);
+                                        }, timeout);
+                                    }
+                                } else {
+                                    // TODO: end dialog
+                                    var textMsg = {
+                                        "touser": msg.fromUserName,  // openid
+                                        "msgtype": 'text',
+                                        "text": {
+                                            "content": "已经结束本次会话,重新开始请输入study指令"
+                                        }
+                                    };
+                                    self.sendNormalMsg(access_token, textMsg, function (result) {
+
+                                    });
+                                }
+                            } else {
+                                // TODO: 给出打分并等重新讲
+                                var textMsg = {
+                                    "touser": msg.fromUserName,  // openid
+                                    "msgtype": 'text',
+                                    "text": {
+                                        "content": "本次打分不通过,请重新讲"
+                                    }
+                                };
+                                self.sendNormalMsg(access_token, textMsg, function (result) {
+
+                                });
+                                var input = {
+                                    msg: msg,
+                                    access_token: access_token,
+                                    sendAll: false
+                                }
+                                self.dialog(input);
+                            }
+                        } else {
+                            // TODO:abort
+                            // 发送空指令
+                        }
                     }
-                } else {
-                    // TODO: 给出打分并等重新讲
+                    else {
+
+                    }
                 }
-            } else {
-                // TODO:abort
-                // 发送空指令
-            }
+            );
+
             /*
              var input = {
              'access_token': access_token,
@@ -311,7 +370,8 @@ CustomService.prototype.onNewMsg = function (msg) {
              });
              */
         }
-    });
+    })
+    ;
 }
 
 CustomService.prototype.sendTextMsg = function (access_token, msg, _callback) {
@@ -397,12 +457,13 @@ CustomService.prototype.sendNormalMsg = function (access_token, msg, _callback) 
     request(options, callback);
 }
 
-CustomService.prototype.voiceDownload = function (input, _callback) {
+function voiceDownload(input, _callback) {
     console.log('voiceDownload');
     require('../util/baidu_asr_util').getToken(baiduAsrConfig, function (result) {
         if (result.err) {
             // TODO: 这儿目前是没有res的
             //self.res.status(timeout).send(result.msg);
+            _callback(false, null)
         } else {
             var access_token = result.data.access_token;
             console.log('access_token', access_token);
@@ -434,10 +495,10 @@ CustomService.prototype.voiceDownload = function (input, _callback) {
 
             function callback(error, response, data) {
                 if (!error && response.statusCode == 200) {
-                    console.log('----info------', data);
-                    _callback(true);
+                    //console.log('----info------', data);
+                    _callback(true, data);
                 } else {
-                    _callback(false);
+                    _callback(false, null);
                 }
             }
 
@@ -446,8 +507,58 @@ CustomService.prototype.voiceDownload = function (input, _callback) {
     });
 }
 
-CustomService.prototype.checkValid = function (msg) {
-    return true;
+function getScore(standard, data) {
+    segUtil = require('../util/segmentation_util');
+    var dataSegResult = segUtil.segment(data.result);
+    //console.log(dataSegResult);
+    //console.log(dataSegResult.count);
+    //console.log(dataSegResult.elementCount);
+    //console.log(dataSegResult.samplingFrequency);
+
+    var standardSegResult = segUtil.segment(standard);
+    //console.log(statandSegResult);
+    //console.log(statandSegResult.count);
+    console.log(standardSegResult.elementCount);
+    //console.log(statandSegResult.samplingFrequency);
+
+    //console.log(dataSegResult.arr);
+    var matchTimes = 0;
+    var notMatchTimes = 0;
+
+    for (var item in dataSegResult.arr) {
+        //console.log(standardSegResult.arr[item]);
+        if (standardSegResult.arr[item] != undefined) {
+            matchTimes++;
+        } else {
+            notMatchTimes++;
+        }
+
+        //console(standardSegResult.arr['${item}']);
+        //if (standardSegResult.arr[item] != undefined) {
+        //  matchTimes++;
+        //} else {
+        //  notMatchTimes++;
+        //}
+    }
+    console.log('matchTimes: ', matchTimes);
+    console.log('notMatchTimes: ', notMatchTimes);
+
+    var score = 0;
+    if (((matchTimes + notMatchTimes) * 0.5 < matchTimes) && (standardSegResult.elementCount * 0.8 < matchTimes)) {
+        console.log('matched');
+        score = 60 + (matchTimes - standardSegResult.elementCount * 0.8) * 100 / (standardSegResult.elementCount * 0.2) * 0.4;
+        if (score >= 100) {
+            score = 100;
+        }
+        if (score >= 90) {
+            score = scores[(Math.random() * 11 + 0.5).toFixed(0)];
+        }
+    } else {
+        console.log('not matched');
+    }
+    console.log(score);
+
+    return score.toFixed(0);
 }
 
 module.exports = new CustomService();
