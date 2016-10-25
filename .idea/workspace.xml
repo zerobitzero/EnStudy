@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="92510d41-6b34-45d8-83da-af74871bff3b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/customer_service.js" afterPath="$PROJECT_DIR$/routes/customer_service.js" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +27,8 @@
       <file leaf-file-name="customer_service.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/customer_service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22619048">
-              <caret line="542" column="44" selection-start-line="542" selection-start-column="44" selection-end-line="542" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.5119048">
+              <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -389,7 +390,13 @@
       <option name="project" value="LOCAL" />
       <updated>1477410159910</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="打分的初步实现.">
+      <created>1477410260980</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1477410260980</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -840,8 +847,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/customer_service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22619048">
-          <caret line="542" column="44" selection-start-line="542" selection-start-column="44" selection-end-line="542" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.5119048">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
           <folding />
         </state>
       </provider>

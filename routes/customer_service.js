@@ -281,14 +281,15 @@ CustomService.prototype.onNewMsg = function (msg) {
                                     }
                                 };
                                 self.sendNormalMsg(access_token, textMsg, function (result) {
-
+                                    var input = {
+                                        msg: msg,
+                                        access_token: access_token,
+                                        sendAll: false
+                                    }
+                                    setTimeout(function() {
+                                        self.dialog(input);
+                                    }, timeout);
                                 });
-                                var input = {
-                                    msg: msg,
-                                    access_token: access_token,
-                                    sendAll: false
-                                }
-                                self.dialog(input);
                             }
                         } else {
                             // TODO:abort
