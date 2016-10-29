@@ -248,7 +248,8 @@ CustomService.prototype.onNewMsg = function (msg) {
                                     item: item,
                                     msg: msg,
                                     itemChild: itemChild,
-                                    input: input
+                                    input: input,
+                                    access_token: access_token
                                 });
                             } else {
                                 // TODO: 给出打分并等重新讲
@@ -299,7 +300,8 @@ CustomService.prototype.onNewMsg = function (msg) {
                                                 item: item,
                                                 msg: msg,
                                                 itemChild: itemChild,
-                                                input: input
+                                                input: input,
+                                                access_token: access_token
                                             });
                                         }, timeout);
                                     });
@@ -433,7 +435,7 @@ CustomService.prototype.sendTextMsg = function (access_token, msg, _callback) {
 
     function callback(error, response, data) {
         if (!error && response.statusCode == 200) {
-            console.log('----info------', data);
+            console.log('wx ----info------', data);
             _callback(true);
         } else {
             _callback(false);
@@ -462,7 +464,7 @@ CustomService.prototype.sendNormalMsg = function (access_token, msg, _callback) 
 
     function callback(error, response, data) {
         if (!error && response.statusCode == 200) {
-            console.log('----info------', data);
+            console.log('wx ----info------', data);
             _callback(true);
         } else {
             _callback(false);
@@ -509,8 +511,8 @@ function voiceAsr(input, _callback) {
             };
 
             function callback(error, response, data) {
-                if (!error && response.statusCode == 200) {
-                    console.log('----info------', data);
+                if (!error && response.statusCode == 200 && data.err_no == 0) {
+                    console.log('baidu ----info------', data);
                     _callback(true, data);
                 } else {
                     _callback(false, null);
@@ -561,10 +563,10 @@ function getScore(standard, data) {
 
     var score = 0;
 
-    if (standardSegResult.elementCount > 3) {
-        if (((matchTimes + notMatchTimes) * 0.5 < matchTimes) && (standardSegResult.elementCount * 0.8 < matchTimes)) {
+    if (standardSegResult.elementCount > 8) {
+        if (((matchTimes + notMatchTimes) * 0.5 < matchTimes) && (standardSegResult.elementCount * 0.6 < matchTimes)) {
             console.log('matched');
-            score = 60 + (matchTimes - standardSegResult.elementCount * 0.8) * 100 / (standardSegResult.elementCount * 0.2) * 0.4;
+            score = 60 + (matchTimes - standardSegResult.elementCount * 0.6) * 100 / (standardSegResult.elementCount * 0.4) * 0.4;
             if (score >= 100) {
                 score = 100;
             }
@@ -575,7 +577,7 @@ function getScore(standard, data) {
             console.log('not matched');
         }
     } else {
-        if (standardSegResult.elementCount == matchTimes) {
+        if (standardSegResult.elementCount * 0.5 < matchTimes) {
             score = (Math.random() * 10 + 0.5) + 85;
         } else {
             console.log('not matched');
@@ -594,6 +596,7 @@ CustomService.prototype.dealNext = function (data) {
     var msg = data.msg;
     var itemChild = data.itemChild;
     var input = data.input;
+    var access_token = data.access_token;
 
     var newIndex = index + 1;
     if (newIndex < item.data.length) {
