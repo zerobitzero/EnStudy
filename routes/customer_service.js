@@ -533,7 +533,7 @@ function getScore(standard, data) {
     //console.log(dataSegResult.samplingFrequency);
 
     var standardSegResult = segUtil.segment(standard);
-    //console.log(standardSegResult);
+    console.log('standardSegResult:', standardSegResult);
     //console.log(statandSegResult.count);
     //console.log(standardSegResult.elementCount);
     //console.log(statandSegResult.samplingFrequency);
@@ -541,7 +541,7 @@ function getScore(standard, data) {
     //console.log(dataSegResult.arr);
     var matchTimes = 0;
     var notMatchTimes = 0;
-    console.log(dataSegResult);
+    console.log('dataSegResult: ', dataSegResult);
     for (var item in dataSegResult.arr) {
         //console.log(item);
         //console.log(standardSegResult.arr[item]);

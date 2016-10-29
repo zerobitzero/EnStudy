@@ -21,12 +21,12 @@ function segment(data) {
         count: 0,
         elementCount: 0,
         samplingFrequency: length,
-        arr:[]
+        arr: []
     };
 
     data.map(function (str) {
         var str = str.toLocaleLowerCase();
-        var reg = /[,|\s|\.|?]/;
+        var reg = /[,|\s|\.|\?]/;
         var res = str.split(reg);
         res
             .filter(function (str) {
@@ -36,16 +36,21 @@ function segment(data) {
                 return true;
             })
             .map(function (str) {
+                if (Number(str) == str) {
+                    // TODO:以后转换为对应的英文字符串发音来处理.
+                    str = 'num_' + str;
+                }
                 if (objResult.arr[str] == undefined) {
                     objResult.arr[str] = 1;
                     objResult.elementCount++;
                 } else {
                     objResult.arr[str] += 1;
                 }
+                console.log(objResult.arr);
                 objResult.count++;
             });
     });
-    //console.log(objResult);
+    console.log(objResult.arr);
     //console.log(objResult.elementCount);
     //console.log(objResult.samplingFrequency);
 
