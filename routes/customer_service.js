@@ -496,7 +496,7 @@ function voiceDownload(input, _callback) {
 
             function callback(error, response, data) {
                 if (!error && response.statusCode == 200) {
-                    //console.log('----info------', data);
+                    console.log('----info------', data);
                     _callback(true, data);
                 } else {
                     _callback(false, null);
