@@ -41,7 +41,7 @@ function getToken(config, _callback) {
     }
 
     if (config.cached && config.cached.timestamp) {
-        var ts = createTimeStamp();
+        var ts = config.cached.timestamp;
         if (isExpireTimeOut(ts)) {
             _requestToken(config, function (result) {
                 _callback(result);

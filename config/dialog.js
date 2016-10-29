@@ -55,82 +55,82 @@ module.exports = [
             {
                 'role': "Student",
                 'content': "Really? Is that a big deal?",
-                'media_id': "YMIPRNh2_C1gmb3oFkObEB3xzi3KQ5OYB7yidtKA5YgREy38L7F-jDlzjveM4RGh"
+                'media_id': "y8szWN_n6sVvtXCT_FGsJ3DUXsIQYNcmVHGGH4ywan2gUm9NaKKG2TQERCZHxGwr"
             },
             {
                 'role': "Librarian",
                 'content': "Oh, sure. Of course the critiques' reaction made some people kind of curious about it. They wanted to see what's causing all the fuss.",
-                'media_id': "fc2U791lSFLu72L9SVcGfip2MO6QJ5S0gR1ivfn0AzYflarN4mTYsy4bezBBR8DM"
+                'media_id': "Pkx3_00YYfXyBAIw3pvXvWSg2COq0fhn_BnTaon6I9frMz297d_JoXSDwaMbd47U"
             },
             {
                 'role': "Librarian",
                 'content': "In fact, we were on vacation in New York. Oh, I had to be, eh, around 16 or so, and my parents took me to see it. That would've been about 1965.",
-                'media_id': "5Rr4k6XuhcDLuPTEmzaScSU5BLNbHig2lT5rPzrCgVHF3PtM4bSs0-EuX2WEhmBk"
+                'media_id': "d5MAHWBKH-zQLUiBLYjJXO5y_kQDvtQUOpYro1XLAdk6ySNj0yxZ4mlZVrdwWm2I"
             },
             {
                 'role': "Student",
                 'content': "So that was the year premier, great, but eh, newspaper from back then weren't online, so, how do I…",
-                'media_id': "su73w7cfXVLMiQXTNbccJdIr8_ut41k_U8mtQN843uo3MPHQUyy8WPOaoDIpn8gP"
+                'media_id': "J95P4fqww4jGpZRBKZubOnwjvQX1ZExVktoY0pP2WkfiYAkhcBy3dd1iRMZXXbPP"
             },
             {
                 'role': "Librarian",
                 'content': "Well, we have copies of all the newspapers in the basement, and all the major papers publish reference guides to their articles reviews, etc.",
-                'media_id': "9w9Md_txK8p_soNFoc_INWiwZbr7gRaZXTB0sWDvaKL-OzZ5ZACkcQkPK9PzoMa8"
+                'media_id': "dV00JHM5bXkfP8AnGAbWQ3_UAyngCZy3EbrexLKibv5M3w5ldhQEhpqTC-3l2ks8"
             },
             {
                 'role': "Librarian",
                 'content': "You will find them in the reference stacks in the back. But I start with 1964, so I think the play had been running for a little while when I saw it.",
-                'media_id': "XB5ixqJJGun65SGToIVQmdTppxN6grqL04jPo6bJXpe8AtOcxivbxfhJ0e8FQkMG"
+                'media_id': "yTGS87IJAkt-wEbakhmB-HTSmy8FoxqXbg7Tj_ecRAFmMhvYNTBVKfrnN1HplFe-"
             },
             {
                 'role': "Student",
                 'content': "How do you like it? I mean just two characters on the stage hanging around and basically doing nothing.",
-                'media_id': "2ou6K1jbJjeROdZa2pi7MZcPq9pyXIF1ClkbRm0-wOfhz5e9IYhM0mrNAiEGAscV"
+                'media_id': "VSGKfnn3eCqvWRnNcqTonRtvatVPAZa_gZDAP47oF1WZWT2omiHC-DPI2-NcBpz0"
             },
             {
                 'role': "Librarian",
                 'content': "Well, I was impressed. The actors were famous, and besides it was my first time in a real theatre.  But you are right.",
-                'media_id': "6om75kWxmxa24X3UDKBYdB2wXnZwYmqQuQnts74JkGNM2wUw0cvZnGlmFRz-m7Vu"
+                'media_id': "TpezD3lAxK3oUIaUWhQgVf3tgcEvEoqZXbe39B5ZtOHo4h4l36KOZKCqkcdt4Luj"
             },
             {
                 'role': "Librarian",
                 'content': "It was definitely different from many plays that we read in high school. Of course, in a small town the assignments are pretty traditional.",
-                'media_id': "3yRq7PSJGVZo0OO-BstZroexSm9J6GtCInQpxP984wJExVpQA0u04xT09kqNjtm3"
+                'media_id': "hO6Pc27m23EKYDtLMqCD32zHKMhwtoaXbhMXpx5EVjoCAywS1HTdEAlkTg8r4fiG"
             },
             {
                 'role': "Student",
                 'content': "Yeah, I've only read it but it doesn't seem like it would be much fun to watch.",
-                'media_id': "LsTCXaQSXr0IYn3fkUyV4MCidXei_uvuyz1fgHKrKtOLLHRIEKjeQ_8NUyF_jcJ6"
+                'media_id': "XqBCa25COGC6KUmo6IBwNAYOtyegiFAb7upNZzmhsHiwGW67C4ztSeDs45M8ViSD"
             },
             {
                 'role': "Student",
                 'content': "The story doesn't progress in any sort of logical matter, doesn't have real ending either, just stops. Honestly, you know, I thought it was kind of slow and boring.",
-                'media_id': "Cz42GQBMcs8SWQ-ry1CJMHephQK4H0oAU3rvD5UEqhdhrxVqF1oEtgwEL4dmGkAX"
+                'media_id': "LcHi6-6owA55EgrsNbDdqYdwmsypWlJwvYmSOf30QT-9VSzSS4z1b1b9wG5MOFZH"
             },
             {
                 'role': "Librarian",
                 'content': "Oh, well I guess you might think that. But when I saw it back then it was anything but boring. Some parts were really funny, but I remember crying too.",
-                'media_id': "90-RRsY9NRek8pEjE8_uMdgawJHqXlzKeWmykEHEm5Ke6SlwSYwyWy-ITjJRx8JI"
+                'media_id': "Vw6n_r_y4QCnEEKmGhlScIJu5NM1WvUx3nDl0PmVVguokwfdt3HLSCVIBmtKhRJr"
             },
             {
                 'role': "Librarian",
                 'content': "But I'm not sure just reading it. You know, they've done this play at least once on campus. I'm sure there is a tape of the play in our video library. You might want to borrow it.",
-                'media_id': "3aNlgtTohXnJcMDNCH3P5EHRoHRX7ga0LWEMDlyIvrXcbHR7Q_y1dcOiIL6nxmi0"
+                'media_id': "-mGb2YQqFvIhbaBSl4j23gaAbgcS8uB6pOZH2nhF5JC5QQtKczxImTjxtXAWBjyA"
             },
             {
                 'role': "Student",
                 'content': "That's a good idea. I'll have a better idea of what I really think of it before I read those reviews.",
-                'media_id': "AdP9B8gioOktWIdETdQ_jucdwSm8y0437Xj_FS1gkPMZOEoBawJ4GCUymQFPlfl8"
+                'media_id': "gOgiP_Xj36r4Fpq7GkqorA9SyGmTYfTv941Jme_Jn4xWT_uQRwiHFdWcrRIb5G1_"
             },
             {
                 'role': "Librarian",
                 'content': "I'm sure you will be surprised that anyone ever found it radical. But you will see why it is still powerful, dramatically speaking.",
-                'media_id': "qWw6LrHKNsj0awiV5cIG8BIqywl3cijpgBsjg774KsNiG15hJYx0OI2W6z4uppPr"
+                'media_id': "3yRq7PSJGVZo0OO-BstZrqAsyuabBvkYRBOywp0KCu5crsclLw4CRxdkQzG8grEu"
             },
             {
                 'role': "Student",
                 'content': "Yeah, it must be something about it, or the professor wouldn't have assigned it. I'm sure I'll figure it out.",
-                'media_id': "mZ72WYpBmsiDHXDtqtD1DqVw4CtadAX00ePid7jX2wVVNFLysdaO8xWDnVXadpa-"
+                'media_id': "fLoutkNjoBjwtTBmjQvY1zXCGzlCceOR5KLK0wi8HZ-p0kucxcAxhmFDbSUDIIN5"
             }
         ]
     },

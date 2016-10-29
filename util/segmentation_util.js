@@ -26,7 +26,7 @@ function segment(data) {
 
     data.map(function (str) {
         var str = str.toLocaleLowerCase();
-        var reg = /[,|\s|\.]/;
+        var reg = /[,|\s|\.|?]/;
         var res = str.split(reg);
         res
             .filter(function (str) {
